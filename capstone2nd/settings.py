@@ -14,7 +14,7 @@ import os
 import django_heroku
 
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +29,7 @@ SECRET_KEY = 'hekh@zbbp0&8dqv9wwoh+eesh(1a*ronx79c$*0@hp8ps(-#)t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = [“chef-assist.herokuapp.com”,]
+ALLOWED_HOSTS = []
 
 
 # Application definition
