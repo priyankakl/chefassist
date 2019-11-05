@@ -29,7 +29,7 @@ SECRET_KEY = 'hekh@zbbp0&8dqv9wwoh+eesh(1a*ronx79c$*0@hp8ps(-#)t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["chefassist.herokuapp.com"]
 
 
 # Application definition
