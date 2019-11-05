@@ -1,0 +1,63 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+button{
+    margin-left:auto;
+    margin-right:auto;
+} 
+
+a.nav-link{
+    font-size:25px;
+} */ */
+
+div#my-form{
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+h4{
+    color:black;
+}
+
+hr{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+div.container{
+    top:15%;
+    width:60%;
+    margin-right:auto;
+    margin-left:auto;
+    border: 2px solid black;
+    margin: 10px;    
+}
+
+form {
+    display: inline-block;
+}
+
+label.col-sm-2, .col-form-label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+html, body {
+    margin: 0; 
+    height: 100%; 
+}
+
+nav.navbar, .navbar-expand-lg, .navbar-transparent{
+    width:30%;
+    margin-left: auto;
+    
+}  
+
+a.nav-link{
+    font-size:22px;
+    color:black;
+    padding-bottom:0px;
+    margin-bottom:0px;
+}

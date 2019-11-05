@@ -1,0 +1,140 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static '/calendar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var events = [
+                    {% for event in events %}
+                            {
+                                title: "{{ event.name}}",
+                                start: '{{ event.start|date:"Y-m-d" }}',
+                                end: '{{ event.end|date:"Y-m-d" }}',
+                                id: '{{ event.id }}',
+                            },
+                    {% endfor %}
+                ];
+
+            var calendar = $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                events: events,
+                selectable: true,
+                selectHelper: true,
+                editable: true,
+                eventLimit: true,
+
+                select: function (start, end, allDay) {
+                    var title = prompt("Enter Event Title");
+                    if (title) {
+                        var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                        var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                        var json = {'title': title, 'start': start, 'end': end};
+                        $.ajax({
+                            type: "GET",
+                            url: '/add_event',
+                            data: json,
+                            dataType: "json",
+                            success: function (data) {
+                                
+                                location.reload();
+                                
+                            },
+                            failure: function (data) {
+                                alert('There is a problem!!!');
+                            }
+                        });
+                    }
+                },
+
+                eventResize: function (event) {
+                    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                    var title = event.title;
+                    var id = event.id;
+                    $.ajax({
+                        type: "GET",
+                        url: '/update',
+                        data: {'title': title, 'start': start, 'end': end, 'id': id},
+                        dataType: "json",
+                        success: function (data) {
+                            calendar.fullCalendar('refetchEvents');
+                            alert('Event Update');
+                            location.reload();
+                        },
+                        failure: function (data) {
+                            alert('There is a problem!!!');
+                        }
+                    });
+                },
+
+                eventDrop: function (event) {
+                    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                    var title = event.title;
+                    var id = event.id;
+                    $.ajax({
+                        type: "GET",
+                        url: '/update',
+                        data: {'title': title, 'start': start, 'end': end, 'id': id},
+                        dataType: "json",
+                        success: function (data) {
+                            calendar.fullCalendar('refetchEvents');
+                            alert('Event Update');
+                            location.reload();
+                        },
+                        failure: function (data) {
+                            alert('There is a problem!!!');
+                        }
+                    });
+                },
+
+                eventClick: function (event) {
+                    if (confirm("Are you sure you want to remove it?")) {
+                        var id = event.id;
+                        $.ajax({
+                            type: "GET",
+                            url: '/remove',
+                            data: {'id': id},
+                            dataType: "json",
+                            success: function (data) {
+                                calendar.fullCalendar('refetchEvents');
+                                alert('Event Removed');
+                                location.reload();
+                            },
+                            failure: function (data) {
+                                alert('There is a problem!!!');
+                            }
+                        });
+                    }
+                },
+
+            });
+        });
+
+    </script>
+    <link rel="stylesheet" href="{% static '/calendar.css' %}">
+</head>
+<body>
+    <form>
+        <button class="btn btn-md btn-primary" formaction="/recipe_list/">Recipes</button>
+    </form>  
+    <br/>
+    <br/>
+    <div class="container">
+        <div id="calendar"></div>
+    </div>
+</body>
+</html>

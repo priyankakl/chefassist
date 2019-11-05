@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>
+            
+        </title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/home.css' %}">       
+    </head>
+    <body>
+        <img src="{% static '/recipe6.jpg' %}">
+        <div class="container">
+            <h1>Welcome to Chef Assist</h1>
+            <br><br><br>  
+            <div class="text-center">
+                <a class="btn btn-primary" href="/signup/" role="button">Sign Up</a>
+                <a class="btn btn-primary" href="/signin/" role="button">Sign In</a>
+            </div>
+        </div>
+    </body>
+</html>
+

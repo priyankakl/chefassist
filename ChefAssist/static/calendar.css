@@ -1,0 +1,37 @@
+
+#calendar{
+    margin-left: auto;
+    margin-right: auto;
+    width:800px;
+
+}
+
+.btn-primary{
+    position: fixed;
+    left:85%;
+    top:5%;
+}
+
+
+.fc-day, .fc-widget-content, .fc-tue, .fc-past{
+    color:#000000;
+
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover, .fc-unthemed .fc-list-view, .fc-unthemed .fc-list-heading td{
+    border-color:#000000;
+}
+
+
+.fc-day-grid-event > .fc-content {
+    white-space: normal;
+    text-overflow: ellipsis;
+    max-height:60px;
+ }
+ .fc-day-grid-event > .fc-content:hover {
+    max-height:none!important; 
+ }
+
+a.fc-day-grid-event, .fc-h-event, .fc-event, .fc-start, .fc-end, .fc-draggable, .fc-resizable{
+    background: rgb(224, 180, 167);
+}

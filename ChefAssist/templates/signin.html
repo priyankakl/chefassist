@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="{% static '/signin.css' %}">
+		<link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+		
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <br>
+            <h3><b>Login </b> </h3>
+            <form action="/signin/" method="POST">
+                {% csrf_token %}
+                <p> username</p>
+                <input type="username" name="username" class="form-control">
+                <br> 
+                <p>email</p>
+                <input type="email" name="email" class="form-control">
+                <br>  
+                <p>password</p>
+                <input type="password" name="password" class="form-control">
+                <br> 
+                <button type="submit" class="btn btn-md btn-success">Signin</button>
+            </form>
+        </div>	 
+    </body>
+</html>
