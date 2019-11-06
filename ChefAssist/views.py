@@ -64,7 +64,7 @@ def signup(request):
 
         if not exists:
             user=User.objects.create_user(username, email, password)
-            return render(request, "signin.html")
+            return render(request, "home.html")
     return render(request, "signup.html")
 
 def signin(request):

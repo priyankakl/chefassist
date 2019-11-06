@@ -24,6 +24,7 @@ $("#form-submit").on("click", function(){
         success:function(response){
             console.log("Sent!")
             alert("Recipe successfully added!")
+            window.location.href = "/recipe_list/";
             document.getElementById("inputtitle").value = ""
             document.getElementById("inputingredients").value = ""
             document.getElementById("inputinstructions").value = ""
