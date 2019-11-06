@@ -69,7 +69,7 @@ $(document).on('click', '.start', function(){
     let mins = $(this).data('time');
     let text = $(this).data('text');
     for(x in text){
-        text=text.replace(".", `<br>`+",");
+        text=text.replace(".", `<br>`+";");
     }   
     var msg = new SpeechSynthesisUtterance(text);
     var voices = window.speechSynthesis.getVoices();
@@ -162,6 +162,7 @@ $("#update-form-submit").on("click", function(){
         success:function(response){
             console.log("Sent!")
             alert("Recipe updated successfully!")
+            window.location.href = "/recipe_list/";
             document.getElementById("inputtitle").value = ""
             document.getElementById("inputingredients").value = ""
             document.getElementById("inputinstructions").value = ""
