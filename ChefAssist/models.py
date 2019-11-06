@@ -4,9 +4,9 @@ from django.db import models
 
 class Recipe(models.Model):
     title=models.CharField(max_length=100)
-    ingredients=models.CharField(max_length=400)
-    instructions=models.CharField(max_length=500)
-    notes=models.CharField(max_length=400)
+    ingredients=models.CharField(max_length=800)
+    instructions=models.CharField(max_length=800)
+    notes=models.CharField(max_length=800)
     #added_on=models.DateField(blank=True, auto_now=True)
     total_time=models.IntegerField(null=True)
     
