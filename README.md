@@ -1,4 +1,4 @@
-# chefassist
+# Chefassist
 > A web application that helps you keep track of your recipes along with features like audio and timer.
 
 # Features
