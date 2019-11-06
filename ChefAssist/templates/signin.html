@@ -13,11 +13,10 @@
             <h3><b>Login </b> </h3>
             <form action="/signin/" method="POST">
                 {% csrf_token %}
+                <br>
+                <br>
                 <p> username</p>
                 <input type="username" name="username" class="form-control">
-                <br> 
-                <p>email</p>
-                <input type="email" name="email" class="form-control">
                 <br>  
                 <p>password</p>
                 <input type="password" name="password" class="form-control">
