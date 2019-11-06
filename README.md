@@ -7,6 +7,6 @@
 * Calendar feature to organise your schedule
 
 # Table of contents
-* [ChefAssist](#https://chefassist.herokuapp.com)
+* [ChefAssist] (#https://chefassist.herokuapp.com)
 * Demo Username : Demo
 * Demo Password : hello123
